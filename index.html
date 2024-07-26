@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1><img src="images/notes.png" alt="Notes Icon" />Notes</h1>
+      <button onclick="createNote()">
+        <img src="images/edit.png" alt="Edit Icon" />Create Notes
+      </button>
+      <div class="notes-container">
+        <p contenteditable="true" class="input-box">
+          <img
+            src="images/delete.png"
+            alt="Delete Icon"
+            onclick="deleteNote(this)"
+          />
+          Type your note here...
+        </p>
+      </div>
+    </div>
+    <script>
+      function createNote() {
+        const notesContainer = document.querySelector(".notes-container");
+        const newNote = document.createElement("p");
+        newNote.setAttribute("contenteditable", "true");
+        newNote.classList.add("input-box");
+        newNote.innerHTML =
+          '<img src="images/delete.png" alt="Delete Icon" onclick="deleteNote(this)" /> Type your note here...';
+        notesContainer.appendChild(newNote);
+      }
+
+      function deleteNote(element) {
+        element.parentElement.remove();
+      }
+    </script>
+  </body>
+</html>
